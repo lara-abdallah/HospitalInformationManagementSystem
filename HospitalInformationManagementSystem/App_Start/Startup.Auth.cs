@@ -54,9 +54,9 @@ namespace HospitalInformationManagementSystem
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "292749902109909",
+               appSecret: "5e0e7b1cabb90ca12a7d2697d7154963");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

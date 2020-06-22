@@ -50,8 +50,8 @@ namespace HospitalInformationManagementSystem.Models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
+        [Display(Name = "Username")]
+
         public string Email { get; set; }
 
         [Required]

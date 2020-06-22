@@ -1,0 +1,112 @@
+﻿@model HospitalInformationManagementSystem.Models.Doctor
+
+@{
+    ViewBag.Title = "DoctorDetail";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <head>
+        <title>Admin | Doctor Details</title>
+    </head>
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Doctor</li>
+        <li class="active">Doctor Detail</li>
+    </ol>
+</div>
+
+<h2>Doctor Detail</h2>
+
+<div>
+    <hr />
+   
+    <table class="table table-striped table-bordered" style="width:60%;margin-left:3%">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Properties</th>
+                <th scope="col">Doctor's Details</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td> @Html.DisplayNameFor(model => model.FirstName)</td>
+                <td> @Html.DisplayFor(model => model.FirstName)</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>@Html.DisplayNameFor(model => model.LastName)</td>
+                <td>@Html.DisplayFor(model => model.LastName)</td>
+
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>Department</td>
+                <td> @Html.DisplayFor(model => model.Department.Name)</td>
+
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>  @Html.DisplayNameFor(model => model.EmailAddress)</td>
+                <td>   @Html.DisplayFor(model => model.EmailAddress)</td>
+
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+
+                <td> @Html.DisplayNameFor(model => model.Address)</td>
+               
+                    <td>  @Html.DisplayFor(model => model.Address) </td>
+
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+             
+                    <td> @Html.DisplayNameFor(model => model.PhoneNo)</td>
+                    <td>  @Html.DisplayFor(model => model.PhoneNo) </td>
+
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>  @Html.DisplayNameFor(model => model.Specialization)</td>
+                <td>  @Html.DisplayFor(model => model.Specialization)</td>
+
+            </tr>
+            <tr>
+                <th scope="row">8</th>
+                <td>  @Html.DisplayNameFor(model => model.Gender)</td>
+                <td>  @Html.DisplayFor(model => model.Gender)</td>
+
+            </tr>
+            <tr>
+                <th scope="row">9</th>
+                <td>  @Html.DisplayNameFor(model => model.BloodGroup)</td>
+                <td>  @Html.DisplayFor(model => model.BloodGroup)</td>
+
+            </tr>
+            <tr>
+                <th scope="row">10</th>
+             
+                    <td> @Html.DisplayNameFor(model => model.DateOfBirth)</td>
+                    <td>  @Html.DisplayFor(model => model.DateOfBirth) </td>
+            </tr>
+            <tr>
+                <th scope="row">11</th>
+                <td>  @Html.DisplayNameFor(model => model.Education)</td>
+                <td>  @Html.DisplayFor(model => model.Education)</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditDoctors", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "ListOfDoctors")
+</p>

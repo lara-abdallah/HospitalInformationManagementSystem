@@ -1,8 +1,26 @@
-﻿
-@*Done by Lara Abdallah*@
+﻿@*Done by Lara Abdallahhhhh*@
 @using HospitalInformationManagementSystem.Models
 @model HospitalInformationManagementSystem.Models.Department
-<h2>Add Doctor</h2>
+@{
+    ViewBag.Title = "AddDepartment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <head>
+        <title>Admin | Add Department</title>
+    </head>
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Department</li>
+        <li class="active">Add Department</li>
+    </ol>
+</div>
+
+<h2>Add Department</h2>
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
@@ -28,26 +46,26 @@
         </div>
 
 
-        @{ 
+        @{
             var statuslist = new List<Doctor>
-            {
+        {
             new Doctor {Status = "Active"},
             new Doctor {Status = "Inactive"}
             };
         }
-            <div class="form-group">
-                @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownListFor(model => model.Status, new SelectList(statuslist, "Status", "Status"), "Select Department Status", new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
-                </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Status, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Status, new SelectList(statuslist, "Status", "Status"), "Select Department Status", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status, "", new { @class = "text-danger" })
             </div>
+        </div>
 
-            <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-success" />
-                </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
+        </div>
     </div>
 }
 

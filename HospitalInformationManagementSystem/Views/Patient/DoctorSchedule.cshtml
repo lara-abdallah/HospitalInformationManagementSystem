@@ -1,0 +1,89 @@
+﻿@model HospitalInformationManagementSystem.Models.Schedule
+
+@{
+    ViewBag.Title = "DoctorSchedule";
+    Layout = "~/Views/Shared/_PatientLayout.cshtml";
+}
+<head>
+    <title>Patient | Doctor Schedule</title>
+</head>
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Doctor</li>
+        <li class="active">Doctor Schedule</li>
+    </ol>
+</div>
+
+<h2>Doctor Schedule</h2>
+<div>
+    <hr />
+
+    <table class="table table-striped table-bordered" style="width:60%;margin-left:3%">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Properties</th>
+                <th scope="col">Doctor's Schedule</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td> @Html.DisplayNameFor(model => model.Doctor.FullName)</td>
+                <td> @Html.DisplayFor(model => model.Doctor.FullName)</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>@Html.DisplayNameFor(model => model.AvailableStartDay)</td>
+                <td>@Html.DisplayFor(model => model.AvailableStartDay)</td>
+
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>@Html.DisplayNameFor(model => model.AvailableEndDay)</td>
+                <td> @Html.DisplayFor(model => model.AvailableEndDay)</td>
+
+            </tr>
+            <tr>
+                <th scope="row">4</th>
+                <td>  @Html.DisplayNameFor(model => model.AvailableStartTime)</td>
+                <td>   @Model.AvailableStartTime.ToShortTimeString()</td>
+
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+
+                <td> @Html.DisplayNameFor(model => model.AvailableEndTime)</td>
+
+                <td> @Model.AvailableEndTime.ToShortTimeString() </td>
+
+            </tr>
+            <tr>
+                <th scope="row">6</th>
+
+                <td> @Html.DisplayNameFor(model => model.TimePerPatient)</td>
+                <td>  @Html.DisplayFor(model => model.TimePerPatient) </td>
+
+            </tr>
+            <tr>
+                <th scope="row">7</th>
+                <td>  @Html.DisplayNameFor(model => model.Status)</td>
+                <td>  @Html.DisplayFor(model => model.Status)</td>
+
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+
+
+<p>
+    @Html.ActionLink("Back to List", "AvailableDoctors")
+</p>

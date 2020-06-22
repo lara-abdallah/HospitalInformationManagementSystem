@@ -55,7 +55,7 @@ namespace HospitalInformationManagementSystem.Controllers
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
-                message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
+                message == ManageMessageId.PasswordisSuccessfullyChanged ? "Your password has been changed."
                 : message == ManageMessageId.SetPasswordSuccess ? "Your password has been set."
                 : message == ManageMessageId.SetTwoFactorSuccess ? "Your two-factor authentication provider has been set."
                 : message == ManageMessageId.Error ? "An error has occurred."
@@ -238,7 +238,7 @@ namespace HospitalInformationManagementSystem.Controllers
                 {
                     await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                 }
-                return RedirectToAction("Index", new { Message = ManageMessageId.ChangePasswordSuccess });
+                return RedirectToAction("Index", new { Message = ManageMessageId.PasswordisSuccessfullyChanged });
             }
             AddErrors(result);
             return View(model);
@@ -376,7 +376,7 @@ namespace HospitalInformationManagementSystem.Controllers
         public enum ManageMessageId
         {
             AddPhoneSuccess,
-            ChangePasswordSuccess,
+            PasswordisSuccessfullyChanged,
             SetTwoFactorSuccess,
             SetPasswordSuccess,
             RemoveLoginSuccess,

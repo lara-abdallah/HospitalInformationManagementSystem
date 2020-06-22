@@ -2,58 +2,157 @@
 @{
     ViewBag.Title = "Register";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Register</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="~/Content/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="~/Content/assets/vendors/iconfonts/ionicons/css/ionicons.css">
+    <link rel="stylesheet" href="~/Content/assets/vendors/iconfonts/typicons/src/font/typicons.css">
+    <link rel="stylesheet" href="~/Content/assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="~/Content/assets/vendors/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="~/Content/assets/vendors/css/vendor.bundle.addons.css">
+    <link rel="icon" href="~/Content/Layout/resources/img/logo.png" type="image/png" sizes="50x50">
+    <!-- endinject -->
+    <!-- plugin css for this page -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <link rel="stylesheet" href="~/Content/assets/css/shared/style.css">
+    <!-- endinject -->
+    <!-- Layout styles -->
+    <link rel="stylesheet" href="~/Content/assets/css/demo_1/style.css">
+    <!-- End Layout styles -->
+    <link rel="shortcut icon" href="~/Content/assets/images/favicon.png" />
+</head>
+<body>
 
-<h2>@ViewBag.Title.</h2>
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="container-scroller">
+            <div class="container-fluid page-body-wrapper full-page-wrapper">
+                <div class="content-wrapper d-flex align-items-center auth register-bg-1 theme-one">
+                    <div class="row w-100">
+                        <div class="col-lg-4 mx-auto">
+                            <h2 class="text-center mb-4">Register</h2>
+                            <div class="auto-form-wrapper">
+                                <form action="#">
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        <label>UserName</label>
+                                        <div class="input-group">
+                                            @Html.TextBoxFor(m => m.UserName, new { @placeholder = "User Name", @class = "form-control" })
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>FirstName</label>
+                                        <div class="input-group">
+                                            @Html.TextBoxFor(m => m.FirstName, new { @placeholder = "First Name", @class = "form-control" })
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>LastName</label>
+                                        <div class="input-group">
+                                            @Html.TextBoxFor(m => m.LastName, new { @placeholder = "Last Name", @class = "form-control" })
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <div class="input-group">
+                                            @Html.TextBoxFor(m => m.Email, new { @placeholder = "Email", @class = "form-control" })
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <div class="input-group">
+                                            @Html.PasswordFor(m => m.Password, new { @placeholder = "Password", @class = "form-control" })
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                    </div>
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h4>Create a new account.</h4>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+                                    <div class="form-group">
+                                        <label>ConfirmPassword</label>
+                                        <div class="input-group">
+                                            @Html.PasswordFor(m => m.ConfirmPassword, new { @placeholder = "Re-Enter Password", @class = "form-control" })
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <i class="mdi mdi-check-circle-outline"></i>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
+                                    </div>
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+                                    <div class="form-group">
+                                        <button type="submit" value="Log in" class="btn btn-primary submit-btn btn-block">Submit</button>
+                                    </div>
+                                    <div class="text-block text-center my-3">
+                                        <span class="text-small font-weight-semibold">Already a member ?</span>
+                                        <a href="@Url.Action("Login", "Account")" class="text-black text-small">Login</a>
+                                    </div>
+                                    <div class="text-block text-center my-3">
+                                        <span class="text-small font-weight-semibold">Back to home page?</span>
+                                        <a href="@Url.Action("Index", "Home")" class="text-black text-small">Home</a>
+                                    </div>
+                                </form>
+                            </div>
+                            <ul class="auth-footer" >
+                                <li>
+                                    <a href="#" style="color:black">Conditions</a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color:black">Help</a>
+                                </li>
+                                <li>
+                                    <a href="#" style="color:black">Terms</a>
+                                </li>
+                            </ul>
+                            <p class="footer-text text-center " style="color:black">copyright © 2020 HIMS. All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- content-wrapper ends -->
+            </div>
+            <!-- page-body-wrapper ends -->
+        </div>}
+
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="~/Content/assets/js/shared/off-canvas.js"></script>
+    <script src="~/Content/assets/js/shared/misc.js"></script>
+    <!-- endinject -->
+</body>
+</html>

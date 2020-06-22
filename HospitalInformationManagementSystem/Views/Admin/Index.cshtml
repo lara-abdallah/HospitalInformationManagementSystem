@@ -1,11 +1,12 @@
-﻿
-@*Done by Zainab Hteit*@
+﻿@*Done by Zainab Hteit*@
 @model HospitalInformationManagementSystem.Models.AdminViewModel
 @{
     ViewBag.Title = "Index";
-   
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
+    <head>
+        <title>Admin | DashBoard</title>
+    </head>
 <div class="row">
     <ol class="breadcrumb">
         <li>
@@ -19,17 +20,28 @@
 
 <div class="row">
     <div class="col-lg-12">
+        <br/>
         <h1 class="page-header">Dashboard</h1>
     </div>
+
 </div><!--/.row-->
 <p class="text-success">@ViewBag.Messege</p>
 <div class="panel panel-container">
     <div class="row">
-
+        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+            <div class="panel panel-teal panel-widget border-right">
+                <div class="row no-padding">
+                    <em class="fa fa-xl fa-building color-blue"></em><br/>
+                    <a href="@Url.Action("DepartmentList","Admin")" style="text-decoration:none" class="large count">@Model.Departments.Count()</a>
+                    <div class="text-muted">Departments</div>
+                </div>
+            </div>
+        </div>
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-blue panel-widget border-right">
                 <div class="row no-padding">
-                    <div class="large count">@Model.Doctors.Count()</div>
+                    <em class="fa fa-xl fa-user-md color-orange"></em><br/>
+                    <a href="@Url.Action("ListOfDoctors","Admin")" style="text-decoration:none"  class="large count">@Model.Doctors.Count()</a>
                     <div class="text-muted">Doctors</div>
                 </div>
             </div>
@@ -37,18 +49,29 @@
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-orange panel-widget border-right">
                 <div class="row no-padding">
-                    <div class="large">@Model.Patients.Count()</div>
+                    <em class="fa fa-xl fa-user color-teal"></em><br/>
+                    <a href="@Url.Action("ListOfPatients","Admin")" style="text-decoration:none" class="large">@Model.Patients.Count()</a>
                     <div class="text-muted">Patients</div>
                 </div>
             </div>
         </div>
+        <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
+            <div class="panel panel-red panel-widget ">
+                <div class="row no-padding">
+                    <em class="fa fa-xl fa-bullhorn color-red"></em><br/>
+                    <a href="@Url.Action("ListOfAnnouncement","Admin")" style="text-decoration:none" class="large count">@Model.Announcements.Count()</a>
+                    <div class="text-muted">Announcements</div>
+                </div>
+            </div>
+        </div>
 
-    </div>
+    </div><!--/.row-->
     <div class="row">
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-teal panel-widget border-right">
                 <div class="row no-padding">
-                    <div class="large count">@Model.ActiveAppointments.Count()</div>
+                    <em class="fa fa-xl fa-pencil-square color-red"></em><br/>
+                    <a href="@Url.Action("ListOfAppointments","Admin")" style="text-decoration:none" class="large count">@Model.ActiveAppointments.Count()</a>
                     <div class="text-muted">Active Appointments</div>
                 </div>
             </div>
@@ -56,12 +79,12 @@
         <div class="col-xs-6 col-md-3 col-lg-3 no-padding">
             <div class="panel panel-blue panel-widget border-right">
                 <div class="row no-padding">
-                    <div class="large count">@Model.PendingAppointments.Count()</div>
+                    <em class="fa fa-xl fa-pencil-square color-teal"></em><br/>
+                    <a href="@Url.Action("PendingAppointments","Admin")" style="text-decoration:none" class="large count">@Model.PendingAppointments.Count()</a>
                     <div class="text-muted">pending Appointments</div>
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
+

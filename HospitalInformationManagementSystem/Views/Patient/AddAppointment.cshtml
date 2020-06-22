@@ -1,6 +1,25 @@
-﻿
-@*Done by Lara Abdallah*@
-@model HospitalInformationManagementSystem.Models.AppointmentViewModel
+﻿@model HospitalInformationManagementSystem.Models.AppointmentViewModel
+
+@{
+    ViewBag.Title = "AddAppointment";
+    Layout = "~/Views/Shared/_PatientLayout.cshtml";
+}
+<head>
+    <title>Patient | Add Appointment</title>
+</head>
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">Appointment</li>
+        <li class="active">Add Appointment</li>
+    </ol>
+</div>
+
 <h2>Add Appointment</h2>
 
 @using (Html.BeginForm())
@@ -13,7 +32,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Appointment.DoctorId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.Appointment.DoctorId, new SelectList(Model.Doctors, "Id", "FullName"), "Select Doctor", new { @id = "dropdown", @class = "form-control" })
+                @Html.DropDownListFor(model => model.Appointment.DoctorId, new SelectList(Model.Doctors, "Id", "FullName"), "Select Doctor", new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Appointment.DoctorId, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -50,13 +69,3 @@
     @Html.ActionLink("Back to List", "ListOfAppointments")
 </div>
 
-@section scripts
-{
-    <script>
-        $(function () {
-            $("#dropdown").chosen();
-        });
-    </script>
-    @Scripts.Render("~/bundles/jqueryval")
-
-}

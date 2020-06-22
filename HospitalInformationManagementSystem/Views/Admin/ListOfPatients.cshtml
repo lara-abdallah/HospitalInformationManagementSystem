@@ -1,0 +1,76 @@
+﻿
+@model IEnumerable<HospitalInformationManagementSystem.Models.Patient>
+
+
+@{
+    ViewBag.Title = "List of Patient";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+    <head>
+        <title>Admin | List Of Patients</title>
+    </head>
+
+<div class="row">
+    <ol class="breadcrumb">
+        <li>
+            <a href="#">
+                <em class="fa fa-home"></em>
+            </a>
+        </li>
+        <li class="active">List of Patients</li>
+    </ol>
+</div>
+
+<h2>List of Patient</h2>
+
+<hr />
+<table id="table_id" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </th>
+
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailAddress)
+                </td>
+ 
+
+                <td>
+                    <a href="@Url.Action("EditPatient", new {id = item.Id})" class="fa fa-pencil-square-o" style="font-size: 19px"> </a> |
+                    <a href="@Url.Action("PatientDetail", new {id = item.Id})" class="fa fa-info-circle" style="font-size: 19px; color: lightblue"></a>|
+                    <a href="@Url.Action("DeletePatient", new {id = item.Id})" class="fa fa-trash" style="font-size: 19px; color: red"></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $("#table_id").dataTable();
+        });</script>
+}
+
+
